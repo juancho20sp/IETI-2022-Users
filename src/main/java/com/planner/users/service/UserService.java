@@ -6,13 +6,13 @@ import com.planner.users.service.exceptions.UserServiceException;
 import java.util.List;
 
 public interface UserService {
-    User create(User user );
+    User create(User user);
 
-    User findById( String id ) throws UserServiceException;
+    User findById(String id) throws UserServiceException;
 
     List<User> getAll();
 
-    User deleteById( String id ) throws UserServiceException;
+    User deleteById(String id) throws UserServiceException;
 
-    User update( User user, String userId ) throws UserServiceException;
+    User update(User user, String userId) throws UserServiceException;
 }
