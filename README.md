@@ -3,7 +3,7 @@
 Users microservice created with SpringBoot.
 
 ## Endpoint Tests
-### POST
+### CREATE USER
 ![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/01-createUser.jpg)
 
 ### GET ALL USERS
