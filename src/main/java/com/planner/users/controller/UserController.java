@@ -26,13 +26,13 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<User>> getAll() {
-        return new ResponseEntity<>(userService.getAll(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping( "/{id}" )
     public ResponseEntity<?> findById( @PathVariable String id ) {
         try {
-            return new ResponseEntity<>(userService.findById(id), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
         } catch ( UserServiceException ex ) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<String>(ex.getMessage(), HttpStatus.NOT_FOUND);
@@ -44,9 +44,7 @@ public class UserController {
         ModelMapper modelMapper = new ModelMapper();
         User user = modelMapper.map(userDto, User.class);
 
-        userService.create(user);
-
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
 
     @PutMapping( "/{id}" )
@@ -54,8 +52,8 @@ public class UserController {
         ModelMapper modelMapper = new ModelMapper();
         try {
             User userMapped = modelMapper.map(user, User.class);
-            userService.update(userMapped, id);
-            return new ResponseEntity<>(HttpStatus.OK);
+
+            return new ResponseEntity<>(userService.update(userMapped, id), HttpStatus.OK);
         } catch (UserServiceException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
@@ -65,8 +63,7 @@ public class UserController {
     @DeleteMapping( "/{id}" )
     public ResponseEntity<?> delete( @PathVariable String id ) {
         try {
-            userService.deleteById(id);
-            return new ResponseEntity<>(true, HttpStatus.OK);
+            return new ResponseEntity<>(userService.deleteById(id), HttpStatus.OK);
         } catch (UserServiceException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);

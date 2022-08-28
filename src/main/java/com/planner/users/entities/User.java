@@ -1,5 +1,7 @@
 package com.planner.users.entities;
 
+import java.util.UUID;
+
 public class User {
     private String id;
     private String name;
@@ -7,11 +9,22 @@ public class User {
     private String lastName;
     private String createdAt;
 
-    public User(String id, String name, String email, String lastName, String createdAt) {
-        this.id = id;
+    public User() {
+        this.id = UUID.randomUUID().toString();
+        this.createdAt = java.time.LocalDate.now().toString();
+    }
+
+    public User(String name, String email, String lastName){
+        this();
         this.name = name;
         this.email = email;
         this.lastName = lastName;
+
+    }
+
+    public User(String id, String name, String email, String lastName, String createdAt) {
+        this(name, email, lastName);
+        this.id = id;
         this.createdAt = createdAt;
     }
 

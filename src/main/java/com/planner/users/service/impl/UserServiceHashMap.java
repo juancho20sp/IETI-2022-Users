@@ -40,12 +40,12 @@ public class UserServiceHashMap implements UserService {
     }
 
     @Override
-    public void deleteById(String id) throws UserServiceException {
+    public User deleteById(String id) throws UserServiceException {
         if (!users.containsKey(id)) {
             throw new UserServiceException(UserServiceException.USER_NOT_FOUND);
         }
 
-        users.remove(id);
+        return users.remove(id);
     }
 
     @Override
@@ -54,6 +54,7 @@ public class UserServiceHashMap implements UserService {
             throw new UserServiceException(UserServiceException.USER_NOT_FOUND);
         }
 
-        return users.replace(userId, user);
+        users.replace(userId, user);
+        return users.get(userId);
     }
 }
