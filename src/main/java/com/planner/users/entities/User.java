@@ -1,10 +1,18 @@
 package com.planner.users.entities;
 
+import com.planner.users.dto.UserDto;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.UUID;
 
+@Document(collection = "users")
 public class User {
+    @Id
     private String id;
     private String name;
+    @Indexed(unique = true)
     private String email;
     private String lastName;
     private String createdAt;
@@ -14,7 +22,11 @@ public class User {
         this.createdAt = java.time.LocalDate.now().toString();
     }
 
-    public User(String name, String email, String lastName){
+    public User(UserDto userDto) {
+        this(userDto.getName(), userDto.getLastName(), userDto.getEmail());
+    }
+
+    public User(String name, String lastName, String email){
         this();
         this.name = name;
         this.email = email;
@@ -22,7 +34,7 @@ public class User {
 
     }
 
-    public User(String id, String name, String email, String lastName, String createdAt) {
+    public User(String id, String name, String lastName, String email, String createdAt) {
         this(name, email, lastName);
         this.id = id;
         this.createdAt = createdAt;

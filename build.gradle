@@ -17,6 +17,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	// https://mvnrepository.com/artifact/org.modelmapper/modelmapper
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
+	// Mongo
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
 }
 
