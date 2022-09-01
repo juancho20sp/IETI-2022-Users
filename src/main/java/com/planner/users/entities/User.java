@@ -12,13 +12,12 @@ public class User {
     @Id
     private String id;
     private String name;
+    private String lastName;
     @Indexed(unique = true)
     private String email;
-    private String lastName;
     private String createdAt;
 
     public User() {
-        this.id = UUID.randomUUID().toString();
         this.createdAt = java.time.LocalDate.now().toString();
     }
 
@@ -38,6 +37,12 @@ public class User {
         this(name, email, lastName);
         this.id = id;
         this.createdAt = createdAt;
+    }
+
+    public void update(User user) {
+        name = user.getName();
+        lastName = user.getLastName();
+        email = user.getEmail();
     }
 
     public String getId() {
