@@ -39,6 +39,16 @@ public class UserController {
         }
     }
 
+    @GetMapping("/createdAfter/{date}")
+    public ResponseEntity<List<User>> findUsersCreatedAfter(@PathVariable String date) {
+        return ResponseEntity.ok(userService.findUsersCreatedAfter(date));
+    }
+
+    @GetMapping("/like/{pattern}")
+    public ResponseEntity<List<User>> findUsersWithNameOrLastNameLike(@PathVariable String pattern) {
+        return ResponseEntity.ok(userService.findUsersWithNameOrLastNameLike(pattern));
+    }
+
     @PostMapping
     public ResponseEntity<User> create( @RequestBody UserDto userDto ) {
         ModelMapper modelMapper = new ModelMapper();

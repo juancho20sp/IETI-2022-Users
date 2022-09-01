@@ -57,4 +57,14 @@ public class UserServiceHashMap implements UserService {
         users.replace(userId, user);
         return users.get(userId);
     }
+
+    @Override
+    public List<User> findUsersWithNameOrLastNameLike(String queryText) {
+        return null;
+    }
+
+    @Override
+    public List<User> findUsersCreatedAfter(String startDate) {
+        return null;
+    }
 }

@@ -15,4 +15,8 @@ public interface UserService {
     User deleteById(String id) throws UserServiceException;
 
     User update(User user, String userId) throws UserServiceException;
+
+    List<User> findUsersWithNameOrLastNameLike(String queryText);
+
+    List<User> findUsersCreatedAfter(String startDate);
 }
