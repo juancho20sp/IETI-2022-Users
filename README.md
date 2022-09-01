@@ -1,28 +1,31 @@
 # Users Microservice
 
-Users microservice created with SpringBoot.
+Users microservice created with SpringBoot and MongoDB.
 
 ## Endpoint Tests
 ### CREATE USER
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/01-createUser.jpg)
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/01-createUser.jpg)
+
+### VERIFY USER CREATED MONGO
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/02-createUserMongo.jpg)
 
 ### GET ALL USERS
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/02-getAll.jpg)
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/03-getAllUsers.jpg)
 
 ### GET SPECIFIC USER
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/03-getSpecificUser.jpg)
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/04-getSpecificUser.jpg)
+
+### GET USERS CREATED AFTER GIVEN DATE
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/05-getUsersCreatedAfter.jpg)
+
+### GET USERS LIKE PATTERN
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/06-getUsersLike.jpg)
 
 ### UPDATE USER
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/04-updateUser.jpg)
-
-### VERIFY USER UPDATED
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/05-verifyUserUpdated.jpg)
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/07-updateUser.jpg)
 
 ### DELETE USER
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/06-deleteUser.jpg)
-
-### VERIFY USER DELETED
-![](https://github.com/juancho20sp/IETI-2022-Users/blob/master/src/main/resources/static/images/part01/07-verifyUserDeleted.jpg)
+![](https://github.com/juancho20sp/IETI-2022-Users/blob/mongo/src/main/resources/static/images/lab02/08-deleteUser.jpg)
 
 
 ## Authors
