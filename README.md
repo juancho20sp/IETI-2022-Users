@@ -1,4 +1,4 @@
-# Users Microservice
+# Users Microservice + MongoDB
 
 Users microservice created with SpringBoot and MongoDB.
 
