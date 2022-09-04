@@ -29,6 +29,11 @@ public class UserServiceHashMap implements UserService {
     }
 
     @Override
+    public User findByEmail(String email) {
+        return null;
+    }
+
+    @Override
     public List<User> getAll() {
         List<User> allUsers = new ArrayList<>();
 

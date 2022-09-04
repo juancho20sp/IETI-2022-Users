@@ -10,6 +10,8 @@ public interface UserService {
 
     User findById(String id) throws UserServiceException;
 
+    User findByEmail(String email);
+
     List<User> getAll();
 
     User deleteById(String id) throws UserServiceException;

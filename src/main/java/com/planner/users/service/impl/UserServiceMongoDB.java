@@ -5,6 +5,7 @@ import com.planner.users.repository.UserRepository;
 import com.planner.users.service.UserService;
 import com.planner.users.service.exceptions.UserServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class UserServiceMongoDB implements UserService {
 
     @Override
     public User create(User user) {
+        //user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         userRepository.save(user);
 
         return user;
@@ -27,6 +29,11 @@ public class UserServiceMongoDB implements UserService {
     @Override
     public User findById(String id) throws UserServiceException {
         return userRepository.findById(id).get();
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).get();
     }
 
     @Override
