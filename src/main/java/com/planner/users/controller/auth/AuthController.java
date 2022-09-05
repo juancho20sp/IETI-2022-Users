@@ -36,36 +36,11 @@ public class AuthController {
 
     @PostMapping
     public TokenDto login(@RequestBody LoginDto loginDto) {
-        System.out.println("AIUDAAAAA");
-        System.out.println(loginDto.getEmail());
-
         User user = userService.findByEmail(loginDto.getEmail());
-        System.out.println("HELLOOO");
-        System.out.println("   ---   ");
-        System.out.println("   ---   ");
-        System.out.println("   ---   ");
-        System.out.println(loginDto.getPassword());
-        System.out.println(user.getEmail());
-        System.out.println(BCrypt.checkpw(loginDto.getPassword(), user.getPassword()));
-        System.out.println(loginDto.getPassword().equals(user.getPassword()));
-        System.out.println(user.getPassword());
-        System.out.println("   ---   ");
-        System.out.println("   ---   ");
-        System.out.println("   ---   ");
 
         if (BCrypt.checkpw(loginDto.getPassword(), user.getPassword())) {
-            System.out.println("***");
-            System.out.println("***");
-            System.out.println("***");
-            System.out.println("generating user");;
-            System.out.println(user.getEmail());
-            System.out.println("***");
-            System.out.println("***");
-            System.out.println("***");
-
             return generateTokenDto(user);
         } else {
-            System.out.println("AIUDA");
             throw new InvalidCredentialsException();
         }
 
@@ -85,15 +60,6 @@ public class AuthController {
         Calendar expirationDate = Calendar.getInstance();
         expirationDate.add(Calendar.MINUTE, TOKEN_DURATION_MINUTES);
         String token = generateToken(user, expirationDate.getTime());
-
-        System.out.println("***");
-        System.out.println("***");
-        System.out.println("***");
-        System.out.println(token);;
-        System.out.println("***");
-        System.out.println("***");
-        System.out.println("***");
-
         return new TokenDto(token, expirationDate.getTime());
     }
 }

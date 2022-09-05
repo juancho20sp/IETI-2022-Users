@@ -53,17 +53,6 @@ public class UserController {
     public ResponseEntity<User> create( @RequestBody UserDto userDto ) {
         ModelMapper modelMapper = new ModelMapper();
         User user = modelMapper.map(userDto, User.class);
-
-        System.out.println("|||  ");
-        System.out.println("|||  ");
-        System.out.println("|||  ");
-        System.out.println(user.getPassword());
-        System.out.println("|||  ");
-        System.out.println("|||  ");
-        System.out.println("|||  ");
-
-
-
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
 

@@ -33,13 +33,6 @@ public class User {
 
     public User(String name, String lastName, String email, String password){
         this();
-        System.out.println("###");
-        System.out.println("###");
-        System.out.println("###");
-        System.out.println("CREANDO USUARIO");
-        System.out.println("###");
-        System.out.println("###");
-        System.out.println("###");
         this.name = name;
         this.email = email;
         this.lastName = lastName;
@@ -62,15 +55,6 @@ public class User {
 
     private void hashPassword(String password){
         if (password != null) {
-            System.out.println("<<<");
-            System.out.println("<<<");
-            System.out.println("<<<");
-            System.out.println(password);
-            System.out.println(BCrypt.hashpw(password, BCrypt.gensalt()));
-
-            System.out.println("<<<");
-            System.out.println("<<<");
-            System.out.println("<<<");
             this.password = BCrypt.hashpw(password, BCrypt.gensalt());
         }
     }

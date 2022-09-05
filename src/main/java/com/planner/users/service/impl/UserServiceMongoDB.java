@@ -33,9 +33,6 @@ public class UserServiceMongoDB implements UserService {
 
     @Override
     public User findByEmail(String email) {
-        System.out.println("FIND BY EMAIL");
-        System.out.println(userRepository.findByEmail(email));
-
         return userRepository.findByEmail(email).get();
     }
 
