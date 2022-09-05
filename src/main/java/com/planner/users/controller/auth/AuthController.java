@@ -45,6 +45,7 @@ public class AuthController {
         System.out.println("   ---   ");
         System.out.println("   ---   ");
         System.out.println(loginDto.getPassword());
+        System.out.println(user.getEmail());
         System.out.println(BCrypt.checkpw(loginDto.getPassword(), user.getPassword()));
         System.out.println(loginDto.getPassword().equals(user.getPassword()));
         System.out.println(user.getPassword());
