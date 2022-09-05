@@ -59,6 +59,12 @@ public class User {
         }
     }
 
+    public void addRole( RoleEnum roleEnum ){
+        if(!roles.contains(roleEnum)) {
+            roles.add(roleEnum);
+        }
+    }
+
     public String getId() {
         return id;
     }

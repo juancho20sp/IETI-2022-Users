@@ -4,12 +4,14 @@ import com.planner.users.dto.UserDto;
 import com.planner.users.entities.User;
 import com.planner.users.service.UserService;
 import com.planner.users.service.exceptions.UserServiceException;
+import com.planner.users.utils.RoleEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,7 +31,7 @@ public class UserController {
         return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping( "/{id}" )
+    @GetMapping("/{id}")
     public ResponseEntity<?> findById( @PathVariable String id ) {
         try {
             return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
@@ -53,10 +55,11 @@ public class UserController {
     public ResponseEntity<User> create( @RequestBody UserDto userDto ) {
         ModelMapper modelMapper = new ModelMapper();
         User user = modelMapper.map(userDto, User.class);
+        user.addRole(RoleEnum.ADMIN);
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
 
-    @PutMapping( "/{id}" )
+    @PutMapping("/{id}")
     public ResponseEntity<?> update( @RequestBody UserDto user, @PathVariable String id ) {
         ModelMapper modelMapper = new ModelMapper();
         try {
@@ -69,7 +72,8 @@ public class UserController {
         }
     }
 
-    @DeleteMapping( "/{id}" )
+    @DeleteMapping("/{id}")
+    @RolesAllowed("ADMIN")
     public ResponseEntity<?> delete( @PathVariable String id ) {
         try {
             return new ResponseEntity<>(userService.deleteById(id), HttpStatus.OK);

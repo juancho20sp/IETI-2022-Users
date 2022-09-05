@@ -20,7 +20,7 @@ public class UserServiceMongoDB implements UserService {
 
     @Override
     public User create(User user) {
-        //user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         userRepository.save(user);
 
         return user;
