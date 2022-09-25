@@ -5,7 +5,7 @@ import com.planner.users.dto.TokenDto;
 import com.planner.users.entities.User;
 import com.planner.users.exception.InvalidCredentialsException;
 import com.planner.users.service.UserService;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
