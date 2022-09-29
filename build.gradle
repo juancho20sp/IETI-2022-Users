@@ -25,7 +25,7 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-crypto'
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	// CORS
-	testImplementation 'org.apache.httpcomponents:httpclient'
+	// testImplementation 'org.apache.httpcomponents:httpclient'
 }
 
 tasks.named('test') {
