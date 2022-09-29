@@ -19,7 +19,7 @@ import java.util.Date;
 import static com.planner.users.utils.constants.Constants.CLAIMS_ROLES_KEY;
 import static com.planner.users.utils.constants.Constants.TOKEN_DURATION_MINUTES;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/v1/auth")
 public class AuthController {
