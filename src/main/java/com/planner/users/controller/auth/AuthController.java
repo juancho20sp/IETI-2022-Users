@@ -21,7 +21,7 @@ import static com.planner.users.utils.constants.Constants.TOKEN_DURATION_MINUTES
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("api/v1/auth")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
     @Value( "${app.secret}" )
     String secret;
